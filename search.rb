@@ -85,3 +85,12 @@ def beam_search(start, goal_p, successors, cost_fn, beam_width)
 end
 
 # beam_search(1, is(12), binary_tree, price_is_right(12), 2)
+
+require_relative 'amap/country'
+
+CITIES = Country.new.province_capitals
+
+class City
+    def initialize()
+    end
+end

@@ -12,6 +12,31 @@ class Country
 		return take('中国', depth)
 	end
 
+    def province_capitals()
+        capitals = []
+        raw = take('中国', 2)
+        provinces = raw['districts'].first['districts']
+        provinces[0..-4].each do |p|
+            p['districts'].each do |c|
+                 capitals.push({
+                    'code' => c['citycode'], 
+                    'name' => c['name'],
+                    'center' => c['center'],
+                    'province' => p['name'],
+                })
+            end
+        end
+        provinces[-3..-1].each do |p|
+            capitals.push({
+                    'code' => p['citycode'], 
+                    'name' => p['name'],
+                    'center' => p['center'],
+                    'province' => p['name'],
+                })
+        end
+        return capitals
+    end
+
 	private
 	def get(url)
 		return HTTP.get(url).body
