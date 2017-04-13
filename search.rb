@@ -1,3 +1,6 @@
+require_relative 'amap/country'
+require_relative 'amap/city'
+require_relative 'amap/utils'
 
 def tree_search(states, goal_p, successors, combiner)
     puts "#{states}"
@@ -86,11 +89,5 @@ end
 
 # beam_search(1, is(12), binary_tree, price_is_right(12), 2)
 
-require_relative 'amap/country'
 
-CITIES = Country.new.province_capitals
 
-class City
-    def initialize()
-    end
-end
